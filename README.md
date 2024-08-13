@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+## `Ctrl + C + 백틱 ` 으로 VS Code 터미널 열기 
+Ctrl + C + ` 을 눌러 터미널을 실행한다. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## create-react-app 으로 프로젝트 생성 및 실행
+```
+npx create-react-app <프로젝트명>
+```
 
-## Available Scripts
+## 리액트 프로젝트 실행 
+```
+cd 프로젝트명 // 프로젝트 파일로 이동하는 명령어
+npm start // 리액트 프로젝트 실행
+```
+---
+## create-react-app 프로젝트 폴더 구조
+크게 public 폴더와 src폴더를 확인할 수 있다. 
+* `public` 폴더에는 리액트 프로젝트에 필요한 `HTML` 파일과 `favicon`등 정적(`Static`)파일들이 담겨있다.
+* `src` 폴더에는 실제로 리액트를 가지고 프로그래밍을 할 자바스크립트(`Javascript`)파일을 보관하고 있다. 
 
-In the project directory, you can run:
+리액트도 웹 서비스로 기본적으로 HTML 파일이 필요하다. `./public/index.html`이 해당 역할을 맡고 있으며, 우리가 만든 리액트 앱이 이 HTML 파일 위에 표시되게 된다. 
 
-### `npm start`
+### 1. `./public/index.html` 
+`<div id="root"></div>` : 사용자가 개발한 리액트 애플리케이션이 표시되는 부분 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 2. `src/index.js.` 
+```
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+        <React.StrictMode>
+            <App />
+        </React.StrictMode>
+);
+```
+HTML의 div 태그에 리액트 애플리케이션을 삽입하는 코드이다. HTML의 요소(`Element`)를 `document.getElementById('root')`를 사용하여 찾는 것을 알 수 있다. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+`ReactDOM.createRoot`를 통해 리액트 프로젝트를 생성한 후 `render`함수를 통하여 root 요소에 <APP />를 표시하는 것을 알 수 있다.
